@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Latest compiled and minified CSS -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+</head>
+<body>
+<style>
+
+
+    /**/
+
+    .rub_25 {
+        font-family: arial;
+        font-size: 25px !important;
+        display: inline-block;
+        font-weight: 100;
+    }
+    .rub-color-black:before, .rub-color-black:after, .rub-color-black {
+        border-color: #000 !important;
+        color: #000 !important;
+    }
+
+    .rub_25:before, .rub_25:after {
+        content: "";
+        display: block;
+        border-bottom: 2px solid #000;
+        position: relative;
+        left: -1px;
+    }
+
+
+    .rub_25:before {
+        width: 8px;
+        top: 16px;
+    }
+
+    .rub_25:after {
+        width: 11px;
+        bottom: 11px;
+    }
+
+
+
+
+    /* КНОПКА КАК в АЙФОНЕ*/
+
+    input[type="checkbox"].ios8-switch {
+        position: absolute;
+        margin: 8px 0 0 16px;
+    }
+    input[type="checkbox"].ios8-switch + label {
+        poition:relative;
+        padding: 5px 0 0 50px;
+        line-height: 2.0em;
+    }
+    input[type="checkbox"].ios8-switch + label:before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: -1px;
+        top: 0;
+        width: 40px; /* x*5 */
+        height: 24px; /* x*3 */
+        border-radius: 16px; /* x*2 */
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    input[type="checkbox"].ios8-switch + label:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0px;
+        top: 2px;
+        width: 24px; /* x*3 */
+        height: 24px; /* x*3 */
+        border-radius: 16px; /* x*2 */
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    input[type="checkbox"].ios8-switch + label:hover:after {
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+    input[type="checkbox"].ios8-switch:checked + label:after {
+        margin-left: 16px;
+    }
+    input[type="checkbox"].ios8-switch:checked + label:before {
+        background: #B44536;
+    }
+
+    /* SMALL */
+
+    input[type="checkbox"].ios8-switch-sm {
+        margin: 5px 0 0 10px;
+    }
+    input[type="checkbox"].ios8-switch-sm + label {
+        position: relative;
+        padding: 0 0 0 32px;
+        line-height: 1.3em;
+    }
+    input[type="checkbox"].ios8-switch-sm + label:before {
+        width: 25px; /* x*5 */
+        height: 15px; /* x*3 */
+        border-radius: 10px; /* x*2 */
+    }
+    input[type="checkbox"].ios8-switch-sm + label:after {
+        width: 11px; /* x*3 */
+        height: 11px; /* x*3 */
+        border-radius: 10px; /* x*2 */
+    }
+    input[type="checkbox"].ios8-switch-sm + label:hover:after {
+        box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    }
+    input[type="checkbox"].ios8-switch-sm:checked + label:after {
+        margin-left: 10px; /* x*2 */
+    }
+
+
+
+    /**/
+    /**/
+    /**/
+    /* BEM*/
+    .mts-configurator{
+        margin:0 auto;
+        border:  2px dotted #ccc;
+        border-radius: 10px;
+        width: 1000px;
+        text-align:center;
+        background: #FAFAFA;
+        padding-top:30px;
+    }
+    .mts-configurator > div{
+        margin-bottom:50px;
+    }
+
+
+
+    /*solution*/
+    .solution{}
+    .solution__title{}
+    .solution__item{
+        display:inline-block;
+        border:1px solid #B44536;
+        border-radius: 5px;
+        padding:15px 5px;
+        width:70px;
+    }
+    .solution__item_active{
+        color:white;
+        background: #B44536;
+    }
+    .solution__item:hover{
+        cursor:pointer;
+        /*background: #ccc;*/
+        opacity:0.7;
+    }
+
+
+    /*custom-settings*/
+
+    .custom-settings{}
+    .custom-settings__title{
+        margin-bottom:20px;
+    }
+    .custom-settings__item{
+        display:inline-block;
+        width:190px;
+
+    }
+    .custom-settings__name{
+        font-size:14px;
+        color: #2e3e25;
+        margin-bottom: 15px;
+
+    }
+    .custom-settings__slider{
+        background: #c7c7c7;
+        width:100%;
+    }
+    .custom-settings__slider_fill{
+        background: #B44536;
+        width:40%;
+        height:4px;
+    }
+    .custom-settings__slider-info{
+        background: #B44536;
+        border-radius: 10px;
+        width: 58px;
+        margin: 0 auto;
+        position: relative;
+        bottom: 14px;
+    }
+    .custom-settings__slider-info:hover{
+        cursor: pointer;
+    }
+
+    .custom-settings__slider-info-num{
+        color:white;
+        padding:3px 5px;
+
+    }
+
+    /*services*/
+    .services{
+        background: #eee;
+        margin: 20px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .serveces__title{
+        font-size:18px;
+        margin-bottom:10px;
+        /*padding:10px;*/
+    }
+
+
+    /*tariff__item*/
+    .tariff__item{
+        display: inline-block;
+        width:250px;
+        border:1px solid #ccc;
+        text-align:left;
+        box-shadow: -1px 9px 13px 4px #a09999;
+        padding: 10px;
+        margin: 5px;
+
+    }
+    .tariff__price{
+        font-size:30px;
+    }
+    .tariff__description{
+        color:#b1aeae;
+        font-size: 12px;
+    }
+    .tariff__item:hover{
+        cursor:pointer;
+        /*background: #ccc;*/
+        opacity:0.7;
+    }
+
+
+
+</style>
+<div class=" mts-configurator">
+
+    <div class="mts-configurator__title ">Конфигуратор Инфраструктуры</div>
+
+
+    <div class="solution">
+        <div class="solution__title ">Готовые решения</div>
+        <div class="solution__item ">Small</div>
+        <div class="solution__item solution__item_active">Medium</div>
+        <div class="solution__item ">Large</div>
+    </div>
+
+
+    <div class="custom-settings">
+        <div class="custom-settings__title ">Настраиваемые параметры</div>
+
+
+        <div class="custom-settings__item ">
+            <div class="custom-settings__name ">Количество CPU</div>
+            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
+            <div class="custom-settings__slider-info ">
+                <div class="custom-settings__slider-info-num">12</div>
+            </div>
+
+<!--
+            slider-info
+            slider-info__lot
+            slider-info__unit-->
+
+
+        </div>
+        <div class="custom-settings__item ">
+            <div class="custom-settings__name ">Объем RAM</div>
+
+            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
+            <div class="custom-settings__slider-info ">
+                <div class="custom-settings__slider-info-num">12</div>
+            </div>
+        </div>
+        <div class="custom-settings__item ">
+            <div class="custom-settings__name ">Место на диске HDD</div>
+
+            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
+            <div class="custom-settings__slider-info ">
+                <div class="custom-settings__slider-info-num">100 <span>Гб</span></div>
+            </div>
+        </div>
+        <div class="custom-settings__item ">
+            <div class="custom-settings__name ">Место на диске SSD</div>
+
+            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
+            <div class="custom-settings__slider-info ">
+                <div class="custom-settings__slider-info-num">12</div>
+            </div>
+        </div>
+        <div class="custom-settings__item ">
+            <div class="custom-settings__name ">Backup</div>
+
+            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
+            <div class="custom-settings__slider-info ">
+                <div class="custom-settings__slider-info-num">12</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="services">
+        <div class="serveces__title">Сервисы и лицензии</div>
+        <div class="serveces__checkbox">
+
+        </div>
+
+
+<!--
+        <input class="serveces__checkbox"  id="cthird" type="checkbox" name="third" />
+        <label class="serveces__description" for="cthird">Microsoft Windows</label>
+-->
+
+        <input type='checkbox' class='ios8-switch ios8-switch-sm' id='checkbox-2'>
+        <label for='checkbox-2'>Microsoft Windows</label>
+
+
+    </div>
+
+
+    <div class="tariff">
+        <div class="tariff__title">Тарифы</div>
+
+
+        <div class="tariff__item">
+            <div class="tariff__name">Гарантированный</div>
+            <div class="tariff__price tariff__price-rub">578974 <span class="rub_25 rub-color-black">Р</span></div>
+            <div class="tariff__description">в месяц</div>
+        </div>
+
+        <div class="tariff__item">
+            <div class="tariff__name">Гибкий</div>
+            <div class="tariff__price tariff__price-rub">1088974 <span class="rub_25 rub-color-black">Р</span></div>
+            <div class="tariff__description">в месяц</div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+<br>
+<br>
+<br>
+
+<br>
+<!--
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="mts-configurator__title col-md-4">Конфигуратор Инфраструктуры</div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <div class="container-fluid solution">
+        <div class="row ">
+            <div class="col-md-4"></div>
+            <div class="solution__title col-md-4">Готовые решения</div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row ">
+            <div class="col-md-4"></div>
+            <div class="solution__title col-md-4">Готовые решения</div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+</div>-->
+
+<!--<div class="container-fluid">-->
+    <!--...-->
+<!--</div>-->
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<style>
+
+
+</style>
+<br>
+<!--<br><input type='checkbox' class='ios8-switch ios8-switch-lg' id='checkbox-3'>-->
+<!--<label for='checkbox-3'>iOS8 switch (large)</label>-->
+<!--<br>-->
+<!--<input type='checkbox' class='ios8-switch' id='checkbox-1'>-->
+<!--<label for='checkbox-1'>iOS8 switch</label>-->
+<br>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
