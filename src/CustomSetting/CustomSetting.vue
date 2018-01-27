@@ -27,6 +27,17 @@
         <!--<hr>-->
         <!--<div>{{dataSliders}}</div>-->
         <!--<hr>-->
+        <hr>
+        <div>selectedSolutionIn</div>
+        <!--<div>{{selectedSolutionIn}}</div>-->
+        <!--<div>{{changeValue}}</div>-->
+        <hr>
+
+
+        <div class="hide" style="display:none">
+            {{changeValue}}
+
+        </div>
     </div>
 
 </template>
@@ -37,6 +48,13 @@
     import slider_s from './Slider_s.vue'
 
     export default {
+        props:{
+            selectedSolutionIn: {
+//                type: Number,
+                required: true,
+            },
+
+        },
         components: {
         'slider-s': slider_s
         },
@@ -97,9 +115,41 @@
                     4: 0,
                     5: 0,
                 },
+//                changeValue:{},
             }
         },
-        methods:{
+        computed: {
+            changeValue(){
+//                return 1+7;
+                if (this.selectedSolutionIn == 1) {
+//                    console.log("00000");
+                    this.sliders[0].value = 4;
+                    this.sliders[1].value = 10;
+                    this.sliders[2].value = 4;
+                    this.sliders[3].value = 100;
+                    this.sliders[4].value = 10;
+                }
+                else if (this.selectedSolutionIn == 2) {
+//                    console.log("00000");
+                    this.sliders[0].value = 16;
+                    this.sliders[1].value = 50;
+                    this.sliders[2].value = 16;
+                    this.sliders[3].value = 200;
+                    this.sliders[4].value = 100;
+                }
+                else if (this.selectedSolutionIn == 3) {
+//                    console.log("00000");
+                    this.sliders[0].value = 30;
+                    this.sliders[1].value = 100;
+                    this.sliders[2].value = 60;
+                    this.sliders[3].value = 400;
+                    this.sliders[4].value = 1000;
+                }
+
+            },
+
+        },
+        methods: {
             valueSliders(vals){
                 this.dataSliders[vals.id] = vals.value;
 

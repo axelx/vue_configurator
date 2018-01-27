@@ -2,12 +2,15 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <h1>{{ msg }}</h1>
-    <slider
-            @viewValueApp="viewOneSlider"
+    <!--<slider-->
+            <!--@viewValueApp="viewOneSlider"-->
 
-    ></slider>
+    <!--&gt;</slider>-->
       <hr>
+
+      <block-Solution @selectedSolutionIn="selectedSolutionApp"></block-Solution>
       <br>
+      <!--==={{selectedSolution}}===-->
       <br>
       <br>
       <!--<slider-s
@@ -16,7 +19,7 @@
               :sliderInfo="sliderI"
       ></slider-s>-->
 
-      <block-custom-setting @valueSliders="blockCustomSetting"></block-custom-setting>
+      <block-custom-setting @valueSliders="blockCustomSetting" :selectedSolutionIn="selectedSolution"></block-custom-setting>
 
       <div>
           <br>
@@ -46,6 +49,7 @@
     import slider from './Slider.vue';
 //import slider_s from './Slider_s_0.vue'
 import blockCustomSetting from './CustomSetting/CustomSetting.vue';
+import blockSolution from './Solution/Solution.vue';
 
 export default {
   name: 'app',
@@ -108,6 +112,7 @@ export default {
             },
         ]*/
         dataSliders: {},
+        selectedSolution:{},
 
     }
   },
@@ -115,6 +120,7 @@ export default {
         slider,
 //        'slider-s': slider_s
         blockCustomSetting,
+        blockSolution,
     },
     methods:{
 //        sliderValue(val){
@@ -129,6 +135,10 @@ export default {
         blockCustomSetting(dataS){
             this.dataSliders = dataS;
         },
+        selectedSolutionApp(id){
+//            console.log(id);
+            this.selectedSolution = id;
+        }
     }
 }
 </script>
