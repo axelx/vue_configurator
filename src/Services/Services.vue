@@ -7,7 +7,7 @@
             <div v-for="(license,index) in licenses">
                 <input
                         type='checkbox'
-                        class="ios8-switch ios8-switch-sm "
+                        class="ios8-switch ios8-switch_sm "
                         v-bind:id="'checkbox-' + index"
                         v-model="checkedLicense"
                         v-bind:value="license.price"
@@ -142,28 +142,28 @@
 
     /* SMALL */
 
-    input[type="checkbox"].ios8-switch-sm {
+    input[type="checkbox"].ios8-switch_sm {
         margin: 5px 0 0 10px;
     }
-    input[type="checkbox"].ios8-switch-sm + label {
+    input[type="checkbox"].ios8-switch_sm + label {
         position: relative;
         padding: 0 0 0 32px;
         line-height: 1.3em;
     }
-    input[type="checkbox"].ios8-switch-sm + label:before {
+    input[type="checkbox"].ios8-switch_sm + label:before {
         width: 25px; /* x*5 */
         height: 17px; /* x*3 */
         border-radius: 10px; /* x*2 */
     }
-    input[type="checkbox"].ios8-switch-sm + label:after {
+    input[type="checkbox"].ios8-switch_sm + label:after {
         width: 13px; /* x*3 */
         height: 13px; /* x*3 */
         border-radius: 10px; /* x*2 */
     }
-    input[type="checkbox"].ios8-switch-sm + label:hover:after {
+    input[type="checkbox"].ios8-switch_sm + label:hover:after {
         box-shadow: 0 0 3px rgba(0,0,0,0.3);
     }
-    input[type="checkbox"].ios8-switch-sm:checked + label:after {
+    input[type="checkbox"].ios8-switch_sm:checked + label:after {
         margin-left: 10px; /* x*2 */
     }
 

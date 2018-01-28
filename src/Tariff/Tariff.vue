@@ -8,7 +8,7 @@
                  :class="{ tariff__item_active: activeItem === 1}"
             >
                 <div class="tariff__name">Гарантированный</div>
-                <div class="tariff__price tariff__price-rub">{{resTariff(tariff1)}} <span class="rub_25 rub-color-black">Р</span></div>
+                <div class="tariff__price tariff__price-rub">{{resTariff(tariff1)}} <span class="rub rub_25 rub_black">Р</span></div>
                 <div class="tariff__description">в месяц</div>
             </div>
 
@@ -17,7 +17,7 @@
                  :class="{ tariff__item_active: activeItem === 2}"
             >
                 <div class="tariff__name">Гибкий</div>
-                <div class="tariff__price tariff__price-rub">{{resTariff(tariff2)}} <span class="rub_25 rub-color-black">Р</span></div>
+                <div class="tariff__price tariff__price-rub">{{resTariff(tariff2)}} <span class="rub rub_25 rub_black">Р</span></div>
                 <div class="tariff__description">в месяц</div>
             </div>
 
@@ -89,13 +89,16 @@
 
 
     /**/
+    .rub{
+
+    }
     .rub_25 {
         font-family: arial;
         font-size: 25px !important;
         display: inline-block;
         font-weight: 100;
     }
-    .rub-color-black:before, .rub-color-black:after, .rub-color-black {
+    .rub_black:before, .rub_black:after, .rub_black {
         border-color: #000 !important;
         color: #000 !important;
     }

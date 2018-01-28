@@ -69,9 +69,9 @@ export default {
 
     },
     methods:{
-        viewOneSlider(oneVal){
-            this.tempView = oneVal;
-        },
+//        viewOneSlider(oneVal){
+//            this.tempView = oneVal;
+//        },
         blockCustomSetting(dataS){
             this.dataSliders = dataS;
         },
