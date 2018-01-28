@@ -113,6 +113,26 @@ export default {
     }
 
 
+    @media (max-width: 1024px) {
+        .mts-configurator{
+            width: 700px;
+
+        }
+    }
+    @media (max-width: 800px) {
+        .mts-configurator{
+            width: 500px;
+
+        }
+    }
+    @media (max-width: 600px) {
+        .mts-configurator{
+            width: 500px;
+
+        }
+    }
+
+
 
     .hide{
         /*display:none1;*/
