@@ -22,6 +22,7 @@
 
                     :processStyle="processStyle"
                     :tooltipStyle="tooltipStyle"
+                    @click.native="checkSetting(keykey)"
 
             ></vue-slider>
             <div>
@@ -74,15 +75,14 @@
             }
         },
         methods:{
-            testMethod(){
-                console.log("++00");
+            checkSetting(){
+//                console.log("++00111");
+//                console.log(this.keykey);
+                this.$emit("checkSettingIn", this.keykey);
             },
             viewValue(){
 //                for(var ii = 0, ii <=)
                 this.valueSelected[this.keykey] = this.sliderInfo.value;
-//                console.log(this.keykey);
-//                console.log(this.sliderInfo.value);
-//                console.log("90090909");
 //                return "0900909";
 
 
@@ -91,9 +91,9 @@
 //
 //                valUp[this.keykey] = this.sliderInfo.value;
 
-                this.$emit("valueSliders",{
-                   id : this.keykey,
-                   value : this.sliderInfo.value,
+                this.$emit("valueSlidersIn",{
+                    id : this.keykey,
+                    value : this.sliderInfo.value,
                     name : this.sliderInfo.name,
                 });
 

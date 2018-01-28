@@ -9,7 +9,9 @@
         <div class="solution__item solution__item_active">Medium</div>
         <div class="solution__item ">Large</div>
     </div>-->
-    <div class="solution">
+    <div class="solution"
+         @click=" clickSolution"
+    >
         <div class="solution__title ">Готовые решения</div>
         <div class="solution__item "
              v-for="(solution) in solutions"
@@ -20,9 +22,9 @@
 
 
         <!--<hr>-->
-        <div class="hide" style="display:none">
-            {{selectedSolution()}}
-        </div>
+        {{selectedSolution()}}
+        <!--<div class="hide" style="1display:1none">-->
+        <!--</div>-->
     </div>
 </template>
 
@@ -80,6 +82,12 @@
         methods:{
             selectedSolution(){
                 this.$emit("selectedSolutionIn",this.activeItem);
+                return this.activeItem;
+
+            },
+            clickSolution(){
+                console.log("===clickSolution======= " + this.activeItem);
+                this.$emit("clickSolutionIn",this.activeItem);
 //                return this.activeItem;
 
             },
