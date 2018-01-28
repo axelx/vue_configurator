@@ -1,7 +1,6 @@
 <template>
 
 <div class=" mts-configurator">
-    <!--<img src="./assets/logo.png">-->
 
       <div class="mts-configurator__title ">Конфигуратор Инфраструктуры</div>
 
@@ -19,16 +18,7 @@
               @sumSelected="sumSelected"
       ></block-custom-setting>
 
-
-
       <block-Services @selectedLicense="selectedLicense"></block-Services>
-
-
-      <div>SumSolutionReturn --- {{sumSolutionSelected}}</div>
-      <div>sumSelectedSelectedReturn --- {{sumSelectedSelected}}</div>
-      <div>selectedLicenses --- {{selectedLicenses}}</div>
-      --------
-
 
       <block-Tariff :tariff1="tariff1" :tariff2="tariff2"></block-Tariff>
 </div>
@@ -115,6 +105,8 @@ export default {
         text-align:center;
         background: #FAFAFA;
         padding-top:30px;
+
+        font-family: verdana;
     }
     .mts-configurator > div{
         margin-bottom:50px;

@@ -1,23 +1,6 @@
 <template>
     <div class="custom-settings">
         <div class="custom-settings__title ">Настраиваемые параметры</div>
-
-      <!--  <div class="custom-settings__item">
-            <div class="custom-settings__name ">Количество CPU</div>
-            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
-            <div class="custom-settings__slider-info ">
-                <div class="custom-settings__slider-info-num">12</div>
-            </div>
-        </div>-->
-
-    <!--    <div class="custom-settings__item">
-            <div class="custom-settings__name ">Количество CPU</div>
-            <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
-            <div class="custom-settings__slider-info ">
-                <div class="custom-settings__slider-info-num">12</div>
-            </div>
-        </div>-->
-
             <slider-s
                     v-for="(sliderI, ii) in sliders"
                     :keykey="ii+1"
@@ -25,22 +8,10 @@
                     @valueSlidersIn="valueSliders"
                     @checkSettingIn="checkSetting"
             ></slider-s>
-        <!--<hr>-->
-        <!--<div>{{dataSliders}}</div>-->
-        <!--<hr>-->
-        <hr>
-        <div>selectedSolutionIn</div>
-        <!--<div>{{selectedSolutionIn}}</div>-->
-        <!--<div>{{changeValue}}</div>-->
-        <hr>
 
-
-        <div class="hide" style="display:none1">
+        <div class="hide" style="display:none">
             {{changeValue}}
             {{sumSolution()}}
-            <!--{{sumSelected()}}-->
-            <div>tempSelectSolution - {{tempSelectSolution}}</div>
-            <div>selectedSolutionIn - {{selectedSolutionIn}}</div>
 
         </div>
     </div>
@@ -49,15 +20,10 @@
 
 <script>
 
-//    import vueSlider from 'vue-slider-component';
     import slider_s from './Slider_s.vue'
 
     export default {
         props:{
-//            selectedSolutionIn: {
-////                type: Number,
-//                required: true,
-//            },
             selectedSolutionIn: {
 //                type: Number,
                 required: true,
@@ -129,7 +95,6 @@
                     4: 0,
                     5: 0,
                 },
-//                changeValue:{},
                 resetS:{},
                 garantPrice: 0,
                 sumSolutionSelect: 0,
@@ -141,16 +106,10 @@
             changeValue(){
 
 
-                if(this.tempSelectSolution  !=this.selectedSolutionIn){
+                if (this.tempSelectSolution != this.selectedSolutionIn) {
                     console.log("here_0");
 
                     this.tempSelectSolution = this.selectedSolutionIn;
-
-
-
-
-    //                return 1+7;
-    //                console.log(this.selectedSolutionIn);
                     if (this.selectedSolutionIn == 1) {
 
                         this.sliders[0].value = 4;
@@ -158,35 +117,30 @@
                         this.sliders[2].value = 4;
                         this.sliders[3].value = 100;
                         this.sliders[4].value = 10;
-                        console.log("here1");
-
                     }
-                      else
-
-
-
-                     if (this.selectedSolutionIn == 2) {
-    //                    console.log("00000");
+                    else if (this.selectedSolutionIn == 2) {
                         this.sliders[0].value = 16;
                         this.sliders[1].value = 50;
                         this.sliders[2].value = 16;
                         this.sliders[3].value = 200;
                         this.sliders[4].value = 100;
-                         console.log("here2");
-
                     }
                     else if (this.selectedSolutionIn == 3) {
-    //                    console.log("00000");
                         this.sliders[0].value = 30;
                         this.sliders[1].value = 100;
                         this.sliders[2].value = 60;
                         this.sliders[3].value = 400;
                         this.sliders[4].value = 1000;
-                         console.log("here3");
-                     }
-                    if(this.selectedSolutionIn){
+                    }
+                    else if (this.selectedSolutionIn == 4) {
+                        this.sliders[0].value = 30;
+                        this.sliders[1].value = 100;
+                        this.sliders[2].value = 100;
+                        this.sliders[3].value = 500;
+                        this.sliders[4].value = 2000;
+                    }
+                    if (this.selectedSolutionIn) {
                         this.sumSolutionSelect = sumSolution(this.sliders);
-    //                    console.log("here2");
                     }
 
                 }
@@ -197,26 +151,9 @@
         },
         methods: {
             checkSetting(id){
-//                console.log("0 checkSetting methods 000____" + id);
-//                console.log(id-1 + "_++__" +this.sliders[id-1].value);
-//                this.resetS = true;
-//                this.$emit("resetSolution",this.resetS);
-
-
-//                console.log(this.sliders);
-//
-//                let sumSelected = sumSolution(this.sliders);
-//                this.$emit("sumSelected", sumSelected)
             },
             valueSliders(vals){
                 this.sliders[vals.id-1].value = vals.value;
-
-//                console.log("valueSliders===" + vals.value);
-
-
-//                this.sumSelected = sumSolution(this.sliders);
-//
-//                console.log(this.sumSelected);
 
 
                 this.dataSliders[vals.id] = vals.value;
@@ -227,18 +164,9 @@
 
             },
             sumSolution(){
-//                console.log(this.sliders);
                 this.$emit("sumSolution", this.sumSolutionSelect);
                 this.$emit("sumSelected", this.sumSelectedVal);
-            },/*
-            sumSelected(){
-//                console.log("99999999999");
-//                let sumSelected = sumSolution(this.sliders);
-                this.$emit("sumSelected", this.sumSelected)
-            }*/
-
-//            valueSlider
-
+            },
         }
     }
 
@@ -246,15 +174,9 @@
 
         let sum=0;
         for(let i=0;i<Arr.length;i++){
-    //        console.log(Arr[i].value);
-    //        console.log(parseInt(Arr[i].value) * parseInt(Arr[i].price));
             sum = sum + (parseInt(Arr[i].value) * parseInt(Arr[i].price));
-
         }
-
-    //    console.log(sum);
         return sum;
-
     }
 </script>
 

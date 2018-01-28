@@ -1,14 +1,5 @@
 <template>
 
-    <!--<div class="solution__item solution__item_active">Medium</div>-->
-
-<!--
-    <div class="solution">
-        <div class="solution__title ">Готовые решения</div>
-        <div class="solution__item ">Small</div>
-        <div class="solution__item solution__item_active">Medium</div>
-        <div class="solution__item ">Large</div>
-    </div>-->
     <div class="solution"
          @click=" clickSolution"
     >
@@ -21,42 +12,14 @@
         >{{solution.name}}</div>
 
 
-        <!--<hr>-->
-        {{selectedSolution()}}
-        <!--<div class="hide" style="1display:1none">-->
-        <!--</div>-->
+        <!--{{selectedSolution()}}-->
     </div>
 </template>
 
 
 
 <script>
-
-    /*
-
-     @click="selectSolution(solution.id)"
-
-
-     */
-
-
-
-//    import vueSlider from 'vue-slider-component';
-
     export default {
-        components: {
-//            vueSlider
-        },
-        props:{
-//            keykey: {
-//                type: Number,
-//                required: true,
-//            },
-//            sliderInfo:{
-//                type:Object,
-//                required: true
-//            }
-        },
         data () {
             return {
 
@@ -74,6 +37,10 @@
                         id: 3,
                         name: 'Large',
                     },
+//                    {
+//                        id: 4,
+//                        name: 'SuperLarge',
+//                    },
                 ],
                 activeItem: null,
 
@@ -113,6 +80,7 @@
         border-radius: 5px;
         padding:15px 5px;
         width:70px;
+        margin:5px;
     }
     .solution__item_active{
         color:white;

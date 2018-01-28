@@ -1,14 +1,5 @@
 <template>
 
-    <!--  <div class="custom-settings__item">
-      <div class="custom-settings__name ">Количество CPU</div>
-      <div class="custom-settings__slider "><div class="custom-settings__slider_fill "></div></div>
-      <div class="custom-settings__slider-info ">
-          <div class="custom-settings__slider-info-num">12</div>
-      </div>
-  </div>-->
-
-
         <div class="custom-settings__item">
             <div class="custom-settings__name ">{{sliderInfo.name}}</div>
 
@@ -25,14 +16,6 @@
                     @click.native="checkSetting(keykey)"
 
             ></vue-slider>
-            <div>
-                {{viewValue()}}
-
-            </div>
-      <!--      <div>==================</div>
-            <div>{{valueSelected}}</div>
-            <div>==================</div>-->
-
         </div>
 
 </template>
@@ -76,29 +59,15 @@
         },
         methods:{
             checkSetting(){
-//                console.log("++00111");
-//                console.log(this.keykey);
                 this.$emit("checkSettingIn", this.keykey);
             },
             viewValue(){
-//                for(var ii = 0, ii <=)
                 this.valueSelected[this.keykey] = this.sliderInfo.value;
-//                return "0900909";
-
-
-
-//                let valUp = {};
-//
-//                valUp[this.keykey] = this.sliderInfo.value;
-
                 this.$emit("valueSlidersIn",{
                     id : this.keykey,
                     value : this.sliderInfo.value,
                     name : this.sliderInfo.name,
                 });
-
-//                this.temp = this.sliderInfo.value;
-                return this.keykey + "   ____   " + this.sliderInfo.value;
             },
         }
 
@@ -107,14 +76,6 @@
 
 
 <style>
-/*
-    div.slider{
-        width:200px;
-        display:inline-block;
-        margin:10px;
-    }
-*/
-
 
 
     .custom-settings__item{
